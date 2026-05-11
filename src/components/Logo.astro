@@ -1,0 +1,24 @@
+---
+interface Props {
+  variant?: "dark" | "paper";
+  size?: "sm" | "md";
+}
+const { variant = "dark", size = "md" } = Astro.props;
+const colorText = variant === "dark" ? "var(--color-ink)" : "var(--color-paper)";
+const textSize = size === "sm" ? "text-[12px]" : "text-[13px]";
+const markH = size === "sm" ? 30 : 36;
+---
+<a href="/" class="group inline-flex items-center gap-3" aria-label="A New Level Of Training - Armand de Wit">
+  <img
+    src="/img/logo-adw.webp"
+    alt="A New Level Of Training logo"
+    width={markH}
+    height={markH}
+    class="shrink-0"
+    style={`height:${markH}px;width:auto`}
+  />
+  <span class={`font-display font-bold leading-tight tracking-tight ${textSize}`} style={`color:${colorText}`}>
+    A NEW LEVEL OF TRAINING<br/>
+    <span class="font-mono font-medium text-[10px] tracking-[0.2em] opacity-70">BY ARMAND DE WIT</span>
+  </span>
+</a>

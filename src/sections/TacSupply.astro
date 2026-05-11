@@ -1,0 +1,95 @@
+---
+const categories = [
+  { code: "GR-01", label: "Uniformen", count: "120+" },
+  { code: "GR-02", label: "Bescherming", count: "85+" },
+  { code: "GR-03", label: "Outdoor & EDC", count: "200+" },
+  { code: "GR-04", label: "Maatwerk", count: "Op aanvraag" },
+];
+
+const brands = ["Helikon-Tex", "5.11", "Pentagon", "First Tactical", "Direct Action", "Mil-Tec"];
+---
+<section id="tacsupply" class="relative bg-ink text-paper py-24 md:py-32 overflow-hidden">
+  <!-- BG layer with vest photo on left -->
+  <div class="absolute left-0 top-0 bottom-0 w-full md:w-[55%] pointer-events-none">
+    <img
+      src="/img/tacsupply-vest.webp"
+      alt=""
+      aria-hidden="true"
+      class="w-full h-full object-cover opacity-50"
+    />
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(90deg, rgba(11,12,14,0.6) 0%, rgba(11,12,14,0.7) 40%, rgba(11,12,14,0.95) 90%, var(--color-ink) 100%);"
+    ></div>
+  </div>
+
+  <div class="absolute inset-0 tac-grid opacity-25 pointer-events-none"></div>
+
+  <div class="container-x relative">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-14 md:mb-20">
+      <div class="md:col-span-6 md:col-start-7">
+        <div class="tac-eyebrow text-signal mb-6">03 / TacSupply</div>
+        <h2 class="text-[clamp(2rem,5.5vw,4rem)] font-display font-bold leading-[0.98] tracking-tight text-balance">
+          Gear die <span class="text-signal">staat</span> als het moet.
+        </h2>
+        <p class="mt-6 text-[16px] md:text-[17px] text-on-dark-soft leading-relaxed">
+          Uitrusting is geen bijzaak. Het verschil tussen presteren en overleven zit vaak in materiaal dat past,
+          niet schuift en niet faalt. Wij leveren beschermingsmiddelen, uniformen en outdoor-kleding die
+          door operationele professionals zijn geselecteerd en in praktijk getest.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+      <!-- Spec card -->
+      <div class="md:col-span-5 md:col-start-1">
+        <div class="relative border hairline-dark bg-ink-2/60 backdrop-blur-sm p-6 md:p-8 rounded-sm corner-mark text-paper">
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-on-dark-mute">CATALOGUS</span>
+            <span class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-signal">
+              <span class="w-1.5 h-1.5 bg-signal rounded-full anim-pulse-dot"></span>
+              Op voorraad
+            </span>
+          </div>
+          <h3 class="font-display font-bold text-[1.6rem] leading-tight">
+            Vier categorieen, een leverancier.
+          </h3>
+          <ul class="mt-8 divide-y hairline-dark">
+            {categories.map((c) => (
+              <li class="py-4 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <span class="font-mono text-[11px] tracking-[0.18em] uppercase text-on-dark-mute">{c.code}</span>
+                  <span class="font-display font-semibold text-[16px]">{c.label}</span>
+                </div>
+                <span class="font-mono text-[12px] tracking-[0.14em] text-on-dark-soft">{c.count}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Brand wall -->
+      <div class="md:col-span-7 flex flex-col justify-between gap-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-px bg-ink-line border hairline-dark rounded-sm overflow-hidden">
+          {brands.map((b) => (
+            <div class="bg-ink-2/70 backdrop-blur-sm aspect-[3/1] flex items-center justify-center px-4">
+              <span class="font-display font-bold text-[14px] md:text-[16px] tracking-tight text-on-dark-soft text-center">
+                {b}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t hairline-dark">
+          <p class="text-on-dark-soft text-[15px] leading-relaxed max-w-md">
+            Specifiek model nodig of een offerte voor uw team? We schakelen direct met de juiste leverancier.
+          </p>
+          <a href="#contact" class="btn btn-ghost-paper">
+            Vraag offerte
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

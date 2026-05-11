@@ -1,0 +1,67 @@
+---
+const quotes = [
+  {
+    quote: "Het verschil met andere trainingen is dat het bij ons echt is blijven hangen. Mijn team handelt anders, ook drie maanden later nog.",
+    name: "Marieke van den Berg",
+    role: "Teamleider Acute Psychiatrie",
+    org: "GGZ-instelling Midden-Nederland",
+  },
+  {
+    quote: "Geen verkooppraatje. Armand bekijkt eerst de situatie en zegt dan eerlijk waar de risico's zitten. Dat advies bespaart ons jaarlijks zes cijfers.",
+    name: "Joost Brinkman",
+    role: "Hoofd Operations",
+    org: "Particuliere beveiligingsorganisatie",
+  },
+  {
+    quote: "De uitrusting die we via ADW hebben gekregen is anders gekozen dan wat we via standaardleveranciers hadden gehad. Beter passend, langer mee.",
+    name: "Sander de Groot",
+    role: "Coordinator Boa",
+    org: "Gemeente Zuid-Holland",
+  },
+];
+---
+<section class="relative bg-paper py-24 md:py-32">
+  <div class="container-x">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-14 md:mb-20 items-end">
+      <div class="md:col-span-7">
+        <div class="tac-eyebrow text-signal mb-6">Praktijkstem</div>
+        <h2 class="text-[clamp(2rem,5vw,3.6rem)] font-display font-bold leading-[0.98] tracking-tight text-balance">
+          Wat opdrachtgevers <span class="text-signal">terugmelden.</span>
+        </h2>
+      </div>
+      <div class="md:col-span-5">
+        <div class="flex items-center gap-3">
+          <div class="stat-num text-[3rem] text-on-paper">9,4<span class="text-signal">/10</span></div>
+          <div class="text-[13px] text-on-paper-soft leading-tight">
+            Gemiddelde<br/>beoordeling deelnemers<br/>over 2024 - 2025
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-paper-line border hairline rounded-sm overflow-hidden">
+      {quotes.map((q, i) => (
+        <figure class="bg-paper p-8 flex flex-col">
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-on-paper-mute">Case 0{i + 1}</span>
+            <div class="flex gap-0.5 text-signal">
+              {Array.from({ length: 5 }).map(() => (
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              ))}
+            </div>
+          </div>
+          <blockquote class="text-[15px] md:text-[16px] text-on-paper leading-relaxed text-pretty flex-1">
+            "{q.quote}"
+          </blockquote>
+          <figcaption class="mt-8 pt-6 border-t hairline">
+            <div class="font-display font-semibold text-[15px]">{q.name}</div>
+            <div class="text-[13px] text-on-paper-soft">{q.role}</div>
+            <div class="text-[12px] font-mono uppercase tracking-[0.16em] text-on-paper-mute mt-1">{q.org}</div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

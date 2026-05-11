@@ -1,0 +1,62 @@
+---
+const steps = [
+  {
+    n: "01",
+    title: "Intake & risicobeeld",
+    body: "We brengen samen in kaart waar uw mensen mee te maken hebben. Locatie, scenario's, kwetsbaarheden en bestaande procedures.",
+  },
+  {
+    n: "02",
+    title: "Maatwerk programma",
+    body: "Geen standaardpakket. De training, het advies of de uitrusting wordt afgestemd op uw situatie en uw mensen.",
+  },
+  {
+    n: "03",
+    title: "Praktijk onder druk",
+    body: "Scenariogestuurd oefenen tot het zit. We voeren de spanning gecontroleerd op, zodat reactie reflex wordt.",
+  },
+  {
+    n: "04",
+    title: "Borging & opvolging",
+    body: "Na de training blijft het werk staan. We borgen het geleerde met opvolgmomenten, refreshers en advies.",
+  },
+];
+---
+<section id="aanpak" class="relative bg-paper-2 py-24 md:py-32 overflow-hidden">
+  <div class="absolute inset-0 tac-grid-paper opacity-50 pointer-events-none"></div>
+
+  <div class="container-x relative">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16 md:mb-20">
+      <div class="md:col-span-5">
+        <div class="tac-eyebrow text-signal mb-6">Onze aanpak</div>
+        <h2 class="text-[clamp(2rem,5vw,3.6rem)] font-display font-bold leading-[1] tracking-tight text-balance">
+          Een keten die staat <span class="text-signal">van intake</span> tot inzet.
+        </h2>
+      </div>
+      <div class="md:col-span-6 md:col-start-7 md:pt-4">
+        <p class="text-[16px] md:text-[17px] text-on-paper-soft leading-relaxed">
+          Wij geloven niet in losse trainingsdagen die volgende maand alweer vervaagd zijn. Onze methodiek
+          bouwt vaardigheid op in vier fases, met een einddoel dat in uw werkpraktijk meetbaar is:
+          mensen die helder denken en handelen op het moment dat het ertoe doet.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-paper-line border hairline rounded-sm overflow-hidden">
+      {steps.map((s) => (
+        <div class="relative bg-paper p-7 md:p-8 flex flex-col gap-5 min-h-[16rem]">
+          <div class="flex items-center justify-between">
+            <span class="stat-num text-[3rem] md:text-[3.6rem] text-on-paper">{s.n}</span>
+            <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-on-paper-mute">Fase</span>
+          </div>
+          <div class="h-px bg-paper-line"></div>
+          <div>
+            <h3 class="text-[20px] font-display font-bold tracking-tight">{s.title}</h3>
+            <p class="mt-2 text-[14px] leading-relaxed text-on-paper-soft">{s.body}</p>
+          </div>
+          <div class="absolute top-7 right-7 w-2 h-2 bg-signal rounded-full"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

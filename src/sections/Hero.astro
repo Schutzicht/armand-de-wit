@@ -1,0 +1,134 @@
+---
+---
+<section class="relative min-h-[100svh] bg-ink text-paper overflow-hidden flex flex-col">
+  <!-- Photo backdrop -->
+  <div class="absolute inset-0 pointer-events-none">
+    <img
+      src="/img/hero-swat.webp"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover object-right opacity-70"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <!-- Left fade -->
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(90deg, rgba(11,12,14,0.97) 0%, rgba(11,12,14,0.85) 40%, rgba(11,12,14,0.55) 65%, rgba(11,12,14,0.35) 100%);"
+    ></div>
+    <!-- Bottom fade for marquee legibility -->
+    <div
+      class="absolute inset-x-0 bottom-0 h-48"
+      style="background: linear-gradient(180deg, transparent, rgba(11,12,14,0.95));"
+    ></div>
+    <!-- Signal glow -->
+    <div
+      class="absolute inset-0"
+      style="background: radial-gradient(50% 50% at 82% 28%, rgba(226, 90, 28, 0.18), transparent 60%);"
+    ></div>
+  </div>
+
+  <!-- Tactical grid overlay -->
+  <div class="absolute inset-0 tac-grid opacity-30 pointer-events-none"></div>
+
+  <!-- Topo / contour lines -->
+  <svg
+    class="absolute -right-32 top-10 w-[60rem] opacity-[0.07] pointer-events-none mix-blend-screen"
+    viewBox="0 0 800 800"
+    fill="none"
+    aria-hidden="true"
+  >
+    {Array.from({ length: 12 }).map((_, i) => {
+      const r = 60 + i * 28;
+      return <circle cx="400" cy="400" r={r} stroke="#F4F2EC" stroke-width="0.7" />;
+    })}
+    <line x1="0" y1="400" x2="800" y2="400" stroke="#F4F2EC" stroke-width="0.7"/>
+    <line x1="400" y1="0" x2="400" y2="800" stroke="#F4F2EC" stroke-width="0.7"/>
+  </svg>
+
+  <div class="container-x relative flex-1 flex flex-col justify-end pt-32 md:pt-40 pb-12 md:pb-16">
+    <!-- Status bar -->
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-10 md:mb-14">
+      <div class="flex items-center gap-2 text-[12px] font-mono uppercase tracking-[0.18em] text-on-dark-soft">
+        <span class="inline-block w-2 h-2 rounded-full bg-signal anim-pulse-dot"></span>
+        Status: actief inzetbaar
+      </div>
+      <div class="hidden md:flex items-center gap-2 text-[12px] font-mono uppercase tracking-[0.18em] text-on-dark-mute">
+        <span class="w-6 h-px bg-on-dark-mute"></span>
+        Locatie: Nederland - inzet EU
+      </div>
+      <div class="hidden md:flex items-center gap-2 text-[12px] font-mono uppercase tracking-[0.18em] text-on-dark-mute">
+        <span class="w-6 h-px bg-on-dark-mute"></span>
+        Sector: zorg / beveiliging / publiek domein
+      </div>
+    </div>
+
+    <h1 class="display-hero text-[clamp(2.6rem,9vw,8rem)] max-w-[18ch] text-balance">
+      Veilig handelen<br/>
+      <span class="text-signal">onder druk.</span><br/>
+      <span class="text-on-dark-soft">Geleerd, niet gegokt.</span>
+    </h1>
+
+    <div class="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-end">
+      <div class="md:col-span-6">
+        <p class="text-on-dark text-[17px] md:text-[19px] leading-relaxed text-pretty max-w-xl">
+          Wij trainen zorgverleners, beveiligers en publieksprofessionals in gevaarsbeheersing,
+          communicatie en teamcoordinatie. Praktijkgericht, scenariogestuurd, met materiaal dat
+          werkt als het er echt toe doet.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#contact" class="btn btn-signal">
+            Plan een kennismaking
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#training" class="btn btn-ghost-paper">
+            Bekijk programma's
+          </a>
+        </div>
+      </div>
+
+      <div class="md:col-span-6 md:pl-10 md:border-l hairline-dark">
+        <div class="grid grid-cols-3 gap-3 sm:gap-6 md:gap-8">
+          <div>
+            <div class="stat-num text-[1.75rem] sm:text-[2.4rem] md:text-[3.4rem] text-paper">17<span class="text-signal">+</span></div>
+            <div class="mt-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.16em] text-on-dark-mute">Jaar veld<br/>ervaring</div>
+          </div>
+          <div>
+            <div class="stat-num text-[1.75rem] sm:text-[2.4rem] md:text-[3.4rem] text-paper">2.400</div>
+            <div class="mt-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.16em] text-on-dark-mute">Professionals<br/>getraind</div>
+          </div>
+          <div>
+            <div class="stat-num text-[1.75rem] sm:text-[2.4rem] md:text-[3.4rem] text-paper">9,4<span class="text-signal">/10</span></div>
+            <div class="mt-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.16em] text-on-dark-mute">Beoordeling<br/>deelnemers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sector marquee -->
+  <div class="relative border-t border-b hairline-dark bg-ink/70 backdrop-blur-sm">
+    <div class="flex overflow-hidden py-4">
+      <div class="anim-marquee flex shrink-0 gap-12 pr-12 text-on-dark-mute text-[12px] font-mono uppercase tracking-[0.22em] whitespace-nowrap">
+        <span>Ziekenhuizen</span><span class="text-signal">/</span>
+        <span>GGZ-instellingen</span><span class="text-signal">/</span>
+        <span>Particuliere beveiliging</span><span class="text-signal">/</span>
+        <span>Boa &amp; handhaving</span><span class="text-signal">/</span>
+        <span>Onderwijs</span><span class="text-signal">/</span>
+        <span>Justitiele inrichtingen</span><span class="text-signal">/</span>
+        <span>Ambulancediensten</span><span class="text-signal">/</span>
+        <span>Gemeentelijke toezicht</span><span class="text-signal">/</span>
+      </div>
+      <div class="anim-marquee flex shrink-0 gap-12 pr-12 text-on-dark-mute text-[12px] font-mono uppercase tracking-[0.22em] whitespace-nowrap" aria-hidden="true">
+        <span>Ziekenhuizen</span><span class="text-signal">/</span>
+        <span>GGZ-instellingen</span><span class="text-signal">/</span>
+        <span>Particuliere beveiliging</span><span class="text-signal">/</span>
+        <span>Boa &amp; handhaving</span><span class="text-signal">/</span>
+        <span>Onderwijs</span><span class="text-signal">/</span>
+        <span>Justitiele inrichtingen</span><span class="text-signal">/</span>
+        <span>Ambulancediensten</span><span class="text-signal">/</span>
+        <span>Gemeentelijke toezicht</span><span class="text-signal">/</span>
+      </div>
+    </div>
+  </div>
+</section>

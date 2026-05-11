@@ -1,0 +1,151 @@
+---
+import Logo from "./Logo.astro";
+
+const navItems = [
+  { label: "Aanpak", href: "#aanpak" },
+  { label: "Training", href: "#training" },
+  { label: "Advies", href: "#advies" },
+  { label: "TacSupply", href: "#tacsupply" },
+  { label: "Over Armand", href: "#over" },
+];
+---
+<header
+  id="site-header"
+  class="fixed top-0 inset-x-0 z-40 transition-all duration-300"
+  data-mode="hero"
+>
+  <div class="container-x">
+    <div
+      class="flex items-center justify-between gap-6 mt-3 md:mt-4 px-4 md:px-5 py-3 md:py-3.5 rounded-sm border transition-colors duration-300"
+      id="header-shell"
+      style="background: rgba(11, 12, 14, 0.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: rgba(244, 242, 236, 0.1);"
+    >
+      <Logo variant="paper" size="sm" />
+
+      <nav class="hidden lg:flex items-center gap-7" aria-label="Hoofdnavigatie">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-[13px] font-medium tracking-tight text-on-dark-soft hover:text-paper transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a
+          href="tel:+31623734238"
+          class="hidden lg:inline-flex items-center gap-2 text-[13px] font-medium text-on-dark-soft hover:text-paper transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          06 23 73 42 38
+        </a>
+        <a href="#contact" class="hidden sm:inline-flex btn btn-signal !py-2 !px-3.5 text-[13px]">
+          Plan kennismaking
+        </a>
+        <button
+          type="button"
+          id="menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          class="lg:hidden inline-flex items-center justify-center w-9 h-9 -mr-1 text-paper"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="7" x2="21" y2="7"/>
+            <line x1="3" y1="17" x2="21" y2="17"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden fixed inset-0 z-50 bg-ink text-paper hidden flex-col"
+    aria-hidden="true"
+  >
+    <div class="container-x flex items-center justify-between py-4">
+      <Logo variant="paper" size="sm" />
+      <button
+        type="button"
+        id="menu-close"
+        aria-label="Sluit menu"
+        class="inline-flex items-center justify-center w-10 h-10 text-paper"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/>
+          <line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="container-x flex-1 flex flex-col justify-between py-8" aria-label="Mobiele navigatie">
+      <ul class="flex flex-col gap-1">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              data-mobile-link
+              class="block py-3 text-3xl font-display font-bold tracking-tight border-b hairline-dark"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="flex flex-col gap-3 pt-8">
+        <a href="tel:+31623734238" class="btn btn-ghost-paper justify-center">06 23 73 42 38</a>
+        <a href="#contact" data-mobile-link class="btn btn-signal justify-center">Plan kennismaking</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Scroll mode swap (hero <-> scrolled)
+  const header = document.getElementById("site-header");
+  const shell = document.getElementById("header-shell");
+  const onScroll = () => {
+    if (!header || !shell) return;
+    const scrolled = window.scrollY > 40;
+    header.dataset.mode = scrolled ? "scrolled" : "hero";
+    if (scrolled) {
+      shell.style.background = "rgba(11, 12, 14, 0.92)";
+      shell.style.borderColor = "rgba(244, 242, 236, 0.12)";
+    } else {
+      shell.style.background = "rgba(11, 12, 14, 0.55)";
+      shell.style.borderColor = "rgba(244, 242, 236, 0.1)";
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  const toggle = document.getElementById("menu-toggle");
+  const close = document.getElementById("menu-close");
+  const menu = document.getElementById("mobile-menu");
+  const open = () => {
+    if (!menu || !toggle) return;
+    menu.classList.remove("hidden");
+    menu.classList.add("flex");
+    menu.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  };
+  const shut = () => {
+    if (!menu || !toggle) return;
+    menu.classList.add("hidden");
+    menu.classList.remove("flex");
+    menu.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+  toggle?.addEventListener("click", open);
+  close?.addEventListener("click", shut);
+  document.querySelectorAll("[data-mobile-link]").forEach((el) => {
+    el.addEventListener("click", shut);
+  });
+</script>

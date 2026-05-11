@@ -1,0 +1,83 @@
+---
+const credentials = [
+  "DSI-achtergrond particuliere beveiliging",
+  "Gecertificeerd trainer gevaarsbeheersing",
+  "WPBR-erkend beveiligingsexpert",
+  "Adviseur publieksdomein zorg en handhaving",
+];
+---
+<section id="over" class="relative bg-paper-2 py-24 md:py-32 overflow-hidden">
+  <div class="absolute inset-0 tac-grid-paper opacity-50 pointer-events-none"></div>
+
+  <div class="container-x relative">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+
+      <!-- Portrait card -->
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="relative rounded-sm overflow-hidden border hairline bg-ink">
+          <img
+            src="/img/training-room.webp"
+            alt="Armand de Wit in een trainingssetting"
+            class="w-full aspect-[4/5] object-cover grayscale"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, transparent 40%, rgba(11,12,14,0.85));"></div>
+          <div class="absolute top-5 left-5 right-5 flex items-center justify-between text-paper">
+            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-on-dark-soft">Operator /01</span>
+            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-signal">ADW</span>
+          </div>
+          <div class="absolute bottom-5 left-5 right-5 text-paper">
+            <div class="font-mono text-[11px] tracking-[0.2em] uppercase text-on-dark-mute mb-2">Oprichter</div>
+            <div class="font-display text-[1.8rem] font-bold leading-none tracking-tight">Armand de Wit</div>
+            <div class="mt-1 text-[14px] text-on-dark-soft">Trainer, adviseur, supplier.</div>
+          </div>
+        </div>
+
+        <ul class="mt-6 space-y-2">
+          {credentials.map((c) => (
+            <li class="flex items-start gap-3 text-[14px] text-on-paper-soft">
+              <svg class="shrink-0 mt-1 text-signal" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              {c}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Story -->
+      <div class="lg:col-span-7 order-1 lg:order-2">
+        <div class="tac-eyebrow text-signal mb-6">Over Armand</div>
+        <h2 class="text-[clamp(2rem,5vw,4rem)] font-display font-bold leading-[0.98] tracking-tight text-balance">
+          Wat ik leer, heb ik <span class="text-signal">eerst zelf moeten doen.</span>
+        </h2>
+
+        <div class="mt-8 space-y-5 text-[16px] md:text-[17px] text-on-paper-soft leading-relaxed max-w-2xl">
+          <p>
+            A New Level Of Training is gebouwd op een simpele observatie: in de zorg, in beveiliging en in het
+            publieke domein zien we elke dag professionals voor situaties staan waar ze niet voor zijn opgeleid.
+            Geweld, agressie, druk. Niet als zeldzaamheid, maar als realiteit.
+          </p>
+          <p>
+            Mijn rol is om die kloof te dichten. Niet met theorie of een powerpoint, maar met training waarin
+            mensen leren wat het werkelijk vraagt. Wat ze zelf kunnen, wat hun team kan, en wanneer het tijd
+            is om op te schalen.
+          </p>
+          <p>
+            Daarnaast lever ik onafhankelijk advies en uitrusting waar ik zelf op zou vertrouwen. Geen verkoop,
+            maar oplossing. Dat is waar A New Level Of Training voor staat.
+          </p>
+        </div>
+
+        <blockquote class="mt-10 pl-6 border-l-2 border-signal">
+          <p class="font-display font-semibold text-[1.4rem] md:text-[1.7rem] leading-tight tracking-tight text-on-paper text-balance">
+            "Veiligheid is geen toestand. Het is een vaardigheid. En vaardigheden ontstaan door herhaling onder druk."
+          </p>
+          <footer class="mt-4 font-mono text-[11px] tracking-[0.2em] uppercase text-on-paper-mute">
+            Armand de Wit / Oprichter
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>

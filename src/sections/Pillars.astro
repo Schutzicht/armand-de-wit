@@ -1,0 +1,101 @@
+---
+const pillars = [
+  {
+    id: "training",
+    code: "01 / PILAAR",
+    title: "Training",
+    tagline: "Praktijkgerichte programma's voor teams onder druk.",
+    body: "Scenariogestuurde trainingen waarin uw mensen leren handelen wanneer de spanning oploopt. Van basis weerbaarheid tot specialty team training.",
+    items: ["Gevaarsbeheersing", "Communicatie", "Teamcoordinatie", "Specialty Team Training"],
+    href: "#training",
+    cta: "Trainingsaanbod",
+  },
+  {
+    id: "advies",
+    code: "02 / PILAAR",
+    title: "Advies",
+    tagline: "Risicobeheersing op maat voor uw organisatie.",
+    body: "Onafhankelijk veiligheidsadvies waarin we beleid, opleidingsbehoefte en uitrusting samenbrengen tot een werkbaar geheel.",
+    items: ["Veiligheidsbeleid", "Risicoanalyse", "Trainingsbehoefte", "Materiaaladvies"],
+    href: "#advies",
+    cta: "Onze aanpak",
+  },
+  {
+    id: "tacsupply",
+    code: "03 / PILAAR",
+    title: "TacSupply",
+    tagline: "Beschermingsmiddelen die staan als het moet.",
+    body: "Hoogwaardige uniformen, tactical gear en outdoor kleding. Door professionals geselecteerd, in de praktijk getest.",
+    items: ["Uniformen", "Beschermingsmiddelen", "Outdoor", "Maatwerk"],
+    href: "#tacsupply",
+    cta: "Bekijk gear",
+  },
+];
+---
+<section id="pijlers" class="relative bg-paper py-24 md:py-32">
+  <div class="container-x">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-14 md:mb-20">
+      <div class="md:col-span-8">
+        <div class="tac-eyebrow text-signal mb-6">Drie pijlers, een doel</div>
+        <h2 class="text-[clamp(2rem,5vw,4rem)] font-display font-bold tracking-tight leading-[0.95] text-balance">
+          Veiligheid is geen incident. <br class="hidden md:block"/>
+          <span class="text-on-paper-soft">Het is een vaardigheid die je opbouwt.</span>
+        </h2>
+      </div>
+      <div class="md:col-span-4">
+        <p class="text-on-paper-soft text-[16px] leading-relaxed text-pretty">
+          We combineren training, advies en uitrusting in een doordachte aanpak. Geen los onderdeel,
+          maar een keten die staat zodra de druk oploopt.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-paper-line border hairline rounded-sm overflow-hidden">
+      {pillars.map((p, i) => (
+        <a
+          href={p.href}
+          class="group relative bg-paper p-7 md:p-10 transition-colors duration-300 hover:bg-ink hover:text-paper flex flex-col"
+        >
+          <div class="flex items-center justify-between mb-10 md:mb-14">
+            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-on-paper-mute group-hover:text-on-dark-mute transition-colors">
+              {p.code}
+            </span>
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full border hairline group-hover:border-paper transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </span>
+          </div>
+
+          <h3 class="text-[2.4rem] md:text-[3rem] font-display font-bold leading-none tracking-tight">
+            {p.title}
+            <span class="inline-block w-1.5 h-1.5 align-baseline ml-0.5 bg-signal rounded-full"></span>
+          </h3>
+
+          <p class="mt-5 text-[15px] font-display font-medium tracking-tight text-on-paper group-hover:text-paper transition-colors">
+            {p.tagline}
+          </p>
+
+          <p class="mt-3 text-[14px] text-on-paper-soft group-hover:text-on-dark-soft leading-relaxed transition-colors">
+            {p.body}
+          </p>
+
+          <ul class="mt-8 space-y-2 text-[13px] font-mono uppercase tracking-[0.14em]">
+            {p.items.map((it) => (
+              <li class="flex items-center gap-2 text-on-paper-mute group-hover:text-on-dark-soft transition-colors">
+                <span class="inline-block w-1 h-1 bg-signal rounded-full"></span>
+                {it}
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-10 pt-6 border-t hairline group-hover:border-on-dark-mute flex items-center justify-between transition-colors">
+            <span class="font-display font-semibold text-[14px]">{p.cta}</span>
+            <span class="font-mono text-[11px] tracking-[0.18em] uppercase opacity-60">0{i + 1}/03</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
